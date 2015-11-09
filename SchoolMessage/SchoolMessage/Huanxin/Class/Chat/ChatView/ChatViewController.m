@@ -424,6 +424,9 @@
                         NSLog(@"ext %@" ,dic);
                         NSString *url = dic[@"renyuantouxiang"];
                         model.headImageURL = [NSURL URLWithString:url.length>0?url:@""];
+                        
+                        NSString *nickname = dic[@"renyuannicheng"];
+                        model.nickName = nickname.length>0?nickname:model.nickName;
                     }
                 }
             }

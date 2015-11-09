@@ -5031,6 +5031,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Gang Sun (XH65VD59PF)";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SchoolMessage/Common/library/3rdparty",
@@ -5048,7 +5049,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "df2c14bf-308b-4d22-a840-eb18677ea2cc";
+				PROVISIONING_PROFILE = "049f5789-75fa-409e-8e6f-737e82e4ca60";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -5058,6 +5059,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Gang Sun (NS84658YLW)";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SchoolMessage/Common/library/3rdparty",
@@ -5075,7 +5077,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "df2c14bf-308b-4d22-a840-eb18677ea2cc";
+				PROVISIONING_PROFILE = "049f5789-75fa-409e-8e6f-737e82e4ca60";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

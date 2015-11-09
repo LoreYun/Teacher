@@ -42,13 +42,13 @@
     
     [self addSubview:self.nameLabel];
     
-    self.readLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 9,SCREEN_WIDTH-40, 16)];
+    self.readLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 9,SCREEN_WIDTH-60, 16)];
     self.readLabel.textColor = [UtilManager getColorWithHexString:@"#333333"];
     self.readLabel.font = [UIFont systemFontOfSize:15];
     self.readLabel.textAlignment = NSTextAlignmentCenter;
     [self addSubview:self.readLabel];
     
-    self.timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 9,SCREEN_WIDTH-40, 16)];
+    self.timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 9,SCREEN_WIDTH-60, 16)];
     self.timeLabel.textColor = [UtilManager getColorWithHexString:@"#333333"];
     self.timeLabel.font = [UIFont systemFontOfSize:15];
     self.timeLabel.textAlignment = NSTextAlignmentRight;
@@ -62,7 +62,19 @@
     self.nameLabel.text = [dic objectForKey:@"StudentName"];
     NSNumber *read = [dic objectForKey:@"ReadFlag"];
     self.readLabel.text = read.intValue ==1 ?@"已读":@"未读";
-    self.timeLabel.text = read.intValue ==1 ?[dic objectForKey:@"CreateTime"]:@"";
+    
+    NSString *result = @"";
+    if (read.intValue ==1) {
+        NSString *temp = [dic objectForKey:@"CreateTime"];
+        NSDateFormatter *formatter =  [NSDateFormatter new];
+        formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+        NSDate *date = [formatter dateFromString:temp];
+        
+        formatter.dateFormat = @"yyyy-MM-dd HH:mm";
+        result = [formatter stringFromDate:date];
+    }
+    
+    self.timeLabel.text = read.intValue ==1 ?result:@"";
 }
 
 +(NSString *)identifier

@@ -50,21 +50,26 @@
 {
     [super viewDidLoad];
     self.title = @"通知详情";
-    [self showHudInView:self.view hint:@""];
     self.readInfoData = [NSMutableArray array];
     
     scrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-64)];
     scrollview.backgroundColor = [UIColor clearColor];
     [self.view addSubview:scrollview];
+    NSString * title = [self.notificationDetail objectForKey:@"Title"];
     
-    UILabel *titlelabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 14,SCREEN_WIDTH-20,21)];
+    CGSize sizeT = [title sizeWithFont:[UIFont systemFontOfSize:19] constrainedToSize:CGSizeMake(SCREEN_WIDTH-40, CGFLOAT_MAX)];
+    
+    UILabel *titlelabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 14,SCREEN_WIDTH-40,sizeT.height)];//14+21=35
     titlelabel.font = [UIFont boldSystemFontOfSize:19];
     titlelabel.textColor = [UtilManager getColorWithHexString:@"#333333"];
     titlelabel.textAlignment = NSTextAlignmentCenter;
-    titlelabel.text = [self.notificationDetail objectForKey:@"Title"];
+    titlelabel.text = title;
+    titlelabel.numberOfLines = 0;
     [scrollview addSubview:titlelabel];
     
-    UILabel *timelabel = [[UILabel alloc] initWithFrame:CGRectMake(20,44,SCREEN_WIDTH-17,16)];
+    CGFloat yy = CGRectGetMaxY(titlelabel.frame);
+    
+    UILabel *timelabel = [[UILabel alloc] initWithFrame:CGRectMake(20,yy+7,SCREEN_WIDTH-40,16)];
     timelabel.font = [UIFont boldSystemFontOfSize:12];
     timelabel.textColor = [UtilManager getColorWithHexString:@"#6D6E71"];
     timelabel.text = [NSString stringWithFormat:@"%@ %@",[self.notificationDetail objectForKey:@"TeacherName"],[self.notificationDetail objectForKey:@"CreateTime"]];
@@ -72,7 +77,7 @@
     
     NSString * content = [self.notificationDetail objectForKey:@"Content"];
     CGSize size = [content sizeWithFont:[UIFont systemFontOfSize:18] constrainedToSize:CGSizeMake(SCREEN_WIDTH-40, CGFLOAT_MAX)];
-    UILabel *contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(20,65,SCREEN_WIDTH-40,size.height)];
+    UILabel *contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(20,yy+30,SCREEN_WIDTH-40,size.height)];
     contentLabel.font = [UIFont systemFontOfSize:18];
     contentLabel.textColor = [UtilManager getColorWithHexString:@"#2b3431"];
     contentLabel.numberOfLines = 0;
@@ -83,6 +88,7 @@
     NSString * FullName = [self.notificationDetail objectForKey:@"FullName"];
     if(FullName.length>0 && ![FullName isEqualToString:@"null"])
     {
+        [self showHudInView:self.view hint:@""];
 //        contentImageView.frame = CGRectMake(10, content_label.frame.origin.y+size.height+20, SCREEN_WIDTH-20, (SCREEN_WIDTH-20.f)/16.f*9.f);
 //        contentImageView.contentMode = UIViewContentModeScaleAspectFill;
 //        contentImageView.clipsToBounds= YES;
@@ -91,13 +97,13 @@
 //        }];
         
         __weak typeof(self) ws = self;
-        iv = [[UIImageView alloc] initWithFrame:CGRectMake(15, size.height+65+20, SCREEN_WIDTH-30, SCREEN_WIDTH-30/9*16)];
+        iv = [[UIImageView alloc] initWithFrame:CGRectMake(15, size.height+yy+30+20, SCREEN_WIDTH-30, SCREEN_WIDTH-30/9*16)];
         iv.contentMode  = UIViewContentModeScaleAspectFill;
         NSURL *url      = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",imageUrl,[self.notificationDetail objectForKey:@"FullName"]]];
         [iv setImageWithURL:url placeholderImage:[UtilManager imageNamed:@"morentupian"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
             CGFloat height =  image.size.height*(SCREEN_WIDTH-20) /image.size.width;
             if (image &&  height > (SCREEN_WIDTH-30.f)/16.f*9.f) {
-                ws.iv.frame = CGRectMake(15,size.height+65+20, SCREEN_WIDTH-30,height);
+                ws.iv.frame = CGRectMake(15,size.height+yy+30+20, SCREEN_WIDTH-30,height);
                 CGFloat y =  CGRectGetMaxY(ws.iv.frame);
                 ws.detailButton.frame = CGRectMake(20, y+14, 74, 32);
                 ws.attdenceInfo.frame = CGRectMake(105, y+24, SCREEN_WIDTH-105, 16);

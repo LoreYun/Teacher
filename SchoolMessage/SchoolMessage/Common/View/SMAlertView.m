@@ -31,7 +31,18 @@
 -(void)initSelf:(NSString *)title message:(NSString *)message cancelButtonTitle:(NSString *)cancelButtonTitle
 {
     self.frame = [UIScreen mainScreen].bounds;
-    CGFloat h = 180;
+    
+    CGFloat titleh = 17;
+    CGFloat contenth = 69;
+    if (title) {
+        titleh = [title sizeWithFont:[UIFont systemFontOfSize:16] constrainedToSize:CGSizeMake(280, MAXFLOAT)].height;
+    }
+    
+    if (message) {
+        contenth = [message sizeWithFont:[UIFont systemFontOfSize:title?14:16] constrainedToSize:CGSizeMake(260, MAXFLOAT)].height;
+    }
+    
+    CGFloat h = 180-17-69 +titleh+contenth;
     
     UIImageView *iv = [[UIImageView alloc] initWithFrame:self.frame];
     iv.image =  [UIImage imageNamed:@"customAlertBG.png"];
@@ -41,9 +52,8 @@
     self.alertView = [[UIView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-280)/2,(SCREEN_HEIGHT-h)/2, 280,h)];
     self.alertView.backgroundColor = [UIColor whiteColor];
 
-    
     if (title) {
-        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,9, 280, 17)];
+        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,9, 280, titleh)];
         titleLabel.font = [UIFont systemFontOfSize:16];
         titleLabel.text = title;
         titleLabel.textColor = [UtilManager getColorWithHexString:@"#333333"];
@@ -51,7 +61,7 @@
         [self.alertView addSubview:titleLabel];
     }
     
-    UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(10,44, 260, 69)];
+    UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(10,9+titleh+18, 260, contenth)];
     messageLabel.font = [UIFont systemFontOfSize:title?14:16];
     messageLabel.text = message;
     messageLabel.textColor = [UtilManager getColorWithHexString:@"#333333"];
@@ -73,7 +83,7 @@
     [confirm addTarget:self action:@selector(onConfirm:) forControlEvents:UIControlEventTouchUpInside];
     [self.alertView addSubview:confirm];
     if (cancelButtonTitle) {
-        confirm.frame = CGRectMake(150, 123, 120, 47);
+        confirm.frame = CGRectMake(150, CGRectGetMaxY(messageLabel.frame)+10, 120, 47);
         
         UIButton *cancel = [UIButton buttonWithType:UIButtonTypeCustom];
         cancel.backgroundColor = [UtilManager getColorWithHexString:@"#c0c0c0"];
@@ -84,10 +94,10 @@
         [cancel addTarget:self action:@selector(onCancel:) forControlEvents:UIControlEventTouchUpInside];
         [self.alertView addSubview:cancel];
         
-        cancel.frame = CGRectMake(10, 123, 120, 47);
+        cancel.frame = CGRectMake(10, CGRectGetMaxY(messageLabel.frame)+10, 120, 47);
     }else
     {
-        confirm.frame = CGRectMake(10, 123, 260, 47);
+        confirm.frame = CGRectMake(10, CGRectGetMaxY(messageLabel.frame)+10, 260, 47);
     }
     
 }
