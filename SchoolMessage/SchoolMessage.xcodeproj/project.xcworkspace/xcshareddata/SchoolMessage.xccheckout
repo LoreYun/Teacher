@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>CDA1C2ED-B7A3-4C28-9A04-D8A049AF0B60</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>49376546-87c7-11e2-8836-d79d5d01e904++3316</key>
+		<string>http://192.168.1.11/svn/travelpartner/client/iphone/gogo/trunk/lvban/modules/sharedModule/ActivityView</string>
+		<key>49376546-87c7-11e2-8836-d79d5d01e904++9162</key>
+		<string>http://192.168.1.11/svn/travelpartner/client/iphone/gogo/trunk/lvban/modules/sharedModule/SDWebImage</string>
+	</dict>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>49376546-87c7-11e2-8836-d79d5d01e904++3316</key>
+		<string>SDWebImage/ActivityView/</string>
+		<key>49376546-87c7-11e2-8836-d79d5d01e904++9162</key>
+		<string>SDWebImage/</string>
+	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>49376546-87c7-11e2-8836-d79d5d01e904++3316</key>
+		<string>http://192.168.1.11/svn/travelpartner</string>
+		<key>49376546-87c7-11e2-8836-d79d5d01e904++9162</key>
+		<string>http://192.168.1.11/svn/travelpartner</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>http://192.168.1.11/svn/travelpartner/client/iphone/gogo/trunk/lvban/modules/sharedModule/SDWebImage</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>49376546-87c7-11e2-8836-d79d5d01e904++9162</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>49376546-87c7-11e2-8836-d79d5d01e904++3316</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ActivityView</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>49376546-87c7-11e2-8836-d79d5d01e904++9162</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SDWebImage</string>
+		</dict>
+	</array>
+</dict>
+</plist>
