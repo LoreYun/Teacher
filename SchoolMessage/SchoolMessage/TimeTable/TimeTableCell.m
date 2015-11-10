@@ -50,6 +50,9 @@ static NSString *iden = @"TimeTableCell.h";
 
 -(void)initViews
 {
+    self.layer.shouldRasterize    = YES;
+    self.layer.rasterizationScale = [UIScreen mainScreen].scale;
+    
     CGFloat w =(SCREEN_WIDTH-10.0f)/8.0f;
     CGFloat h = w /85.0f *139.0f;
     self.titleLabel = [[UIButton alloc] initWithFrame:CGRectMake(2.5, 5.5, w-5, h-11)];

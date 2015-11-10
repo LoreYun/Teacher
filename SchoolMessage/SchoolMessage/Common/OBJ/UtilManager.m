@@ -11,6 +11,7 @@
 //引入IOS自带密码库
 #import <CommonCrypto/CommonCryptor.h>
 #import <CommonCrypto/CommonDigest.h>
+#import "SDWebImageManager.h"
 
 //空字符串
 #define     LocalStr_None           @""
@@ -390,7 +391,13 @@ static const char encodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq
 
 +(UIImage *)imageNamed:(NSString *)imageName
 {
-    return [UtilManager converterPNGImageScale:[UIImage imageNamed:imageName]];
+    UIImage *image = [[SDWebImageManager sharedManager].imageCache imageFromMemoryCacheForKey:imageName];
+    if (!image) {
+        image = [UtilManager converterPNGImageScale:[UIImage imageNamed:imageName]];
+        [[SDWebImageManager sharedManager].imageCache storeImage:image forKey:imageName toDisk:NO];
+    }
+    
+    return image;
 }
 
 @end

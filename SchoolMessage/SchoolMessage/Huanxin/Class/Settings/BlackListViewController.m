@@ -49,7 +49,7 @@
     
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    backBtn.frame = CGRectMake(0, 5, 100, 33);
+    backBtn.frame = CGRectMake(0, 0, 44, 44);;
     
     [backBtn setImage:[UtilManager imageNamed:@"back"] forState:UIControlStateNormal];
     

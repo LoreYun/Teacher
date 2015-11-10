@@ -352,7 +352,7 @@ static NSString *identifier = @"HomeWorkDetailViewController";
     }
    NSString *url = [self.imageArray objectAtIndex:indexPath.row];
 
-    [iv setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UtilManager imageNamed:@"moretupian"]];
+    [iv setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UtilManager imageNamed:@"morentupian"]];
     return cell;
 }
 

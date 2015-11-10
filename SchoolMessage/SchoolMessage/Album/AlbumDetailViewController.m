@@ -236,7 +236,7 @@ static NSString *identifier = @"clsll";
     NSDictionary *dic = [self.photoDataSource objectAtIndex:indexPath.row];
     
     NSString *url = [NSString stringWithFormat:@"%@%@",imageUrl,[dic objectForKey:@"FullName"]];
-    [iv setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UtilManager imageNamed:@"moretupian"]];
+    [iv setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UtilManager imageNamed:@"morentupian"]];
     return cell;
 }- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {

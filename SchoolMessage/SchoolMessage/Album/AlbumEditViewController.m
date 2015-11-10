@@ -183,7 +183,7 @@ static NSString *identifier = @"clsl1l";
     NSDictionary *dic = [self.photoDataSource objectAtIndex:indexPath.row];
     
     NSString *url = [NSString stringWithFormat:@"%@%@",imageUrl,[dic objectForKey:@"FullName"]];
-    [iv setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UtilManager imageNamed:@"moretupian"]];
+    [iv setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UtilManager imageNamed:@"morentupian"]];
     
     NSNumber *flag = [self.selArray objectAtIndex:indexPath.row];
     selIv.image = [UtilManager imageNamed:flag.boolValue?@"album_sel":@"album_unsel"];
